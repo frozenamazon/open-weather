@@ -1,5 +1,9 @@
 module.exports = function(grunt) {
 
+  // Load the plugins.
+  require('load-grunt-tasks')(grunt);
+  grunt.loadNpmTasks('grunt-karma');
+
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -73,10 +77,14 @@ module.exports = function(grunt) {
             ]
         }
     },
+    // Test settings
+    karma: {
+        unit: {
+            configFile: 'karma.conf.js',
+            singleRun: true
+        }
+    }
   });
-
-  // Load the plugins.
-  require('load-grunt-tasks')(grunt);
 
   // Default task(s).
   grunt.registerTask('default', [
@@ -84,7 +92,10 @@ module.exports = function(grunt) {
     'watch'
   ]);
 
-  // Default task(s).
+  grunt.registerTask('test', [
+    'karma'
+  ]);
+
   grunt.registerTask('build', [
     'useminPrepare',
     'concat',
