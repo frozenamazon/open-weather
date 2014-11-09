@@ -1,4 +1,6 @@
-describe("Unit: WeatherCtrl", function(){
+'use strict';
+
+describe("Unit: MainCtrl", function(){
 	var _scope, _weatherCtrl;
 
 	beforeEach(function(){
@@ -8,15 +10,15 @@ describe("Unit: WeatherCtrl", function(){
 		inject(function($rootScope, $controller){
 			var _controller = $controller;
 			_scope = $rootScope.$new();
-			_weatherCtrl = $controller('WeatherCtrl', {
+			_weatherCtrl = $controller('MainCtrl', {
 				$scope: _scope
 			});
 
 		});
 	});
 
-	it('should check that test is correct', function(){
-		expect(_scope.test).toBe('123');
+	it('should check that it has a weather template page', function(){
+		expect(_scope.weatherPage).toBe('modules/weather/partials/weather.html');
 	});
 
 });

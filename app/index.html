@@ -14,16 +14,19 @@
 
 		<!-- build:js js/index.min.js -->
 		<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
-		<script type="text/javascript" src="modules/common/js/index.js"></script>
+		<script type="text/javascript" src="modules/common/controllers/index.js"></script>
+		<script type="text/javascript" src="modules/weather/controllers/weather.js"></script>
+		<script type="text/javascript" src="modules/weather/services/weather.js"></script>
+		<script type="text/javascript" src="modules/common/services/configuration.js"></script>
 		<!-- endbuild -->
 	</head>
-	<body ng-app="Weather" ng-controller="WeatherCtrl">
+	<body ng-app="Weather" ng-controller="MainCtrl">
 		<header>
 			<nav>
 			</nav>
 		</header>
 		<main>
-		    {{test}}
+		    <div ng-include="weatherPage"></div>
 		</main>
 	</body>
 </html>

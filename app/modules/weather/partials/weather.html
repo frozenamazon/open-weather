@@ -1,0 +1,64 @@
+<div ng-controller="WeatherCtrl">
+	<h2>Today's weather in <span class="country">{{country}}</span></h2>
+	<div class="city-list">
+		<a ng-repeat="item in cities" ng-click="getWeatherDataByCity(item.cities)">{{item.cities}}</a>
+	</div>
+
+	<div class="weather-info" ng-show="weather && !error">
+		<article>
+			<div class="col-xs-8 main">
+				<h3 class="location-name">{{weather.location}}
+					<span class="weather-icon" ng-repeat="item in weather.weatherConditions" style="background-image:url({{item.icon}})"></span>
+				</h3>
+				
+				<div class="temperature column">
+					<div class="col-xs-6 temperature-current emphasis"><h4>Temperature</h4>{{weather.temperate}}</div>
+					<div class="col-xs-3 temperature-range">
+						<span class="temperature-range-label">Min</span>
+						<span class="temperature-range-value">{{weather.temp_min}}</span>
+					</div>
+					<div class="col-xs-3 temperature-range">
+						<span class="temperature-range-label">Max</span>
+						<span class="temperature-range-value">{{weather.temp_max}}</span>
+					</div>
+				</div>
+				<div class="clear"></div>
+
+				<div class="column">
+					<div class="col-xs-6">
+						<h4>Humidity</h4>
+						<div class="emphasis">{{weather.humidity}}</div>
+					</div>
+					<div class="col-xs-6">
+						<h4>Pressure</h4>
+						<div class="emphasis">{{weather.pressure}}</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<div class="location">
+					<div class="location-position"><span class="location-label">Longitude</span><span class="location-value">{{weather.longitude}}</span></div>
+					<div class="location-position"><span class="location-label">Latitude</span><span class="location-value">{{weather.latitude}}</span></div>
+					<div class="clear"></div>
+				</div>
+				<div>
+					<iframe id="googleMaps" width="260" height="240"
+					  frameborder="0" style="border:0">
+					</iframe>
+				</div>
+			</div>
+
+			<div class="clear"></div>
+			
+		</article>
+	</div>
+
+	<div class="weather-info" ng-show="!weather && !error">
+		<p>Please choose a city from above</p>
+	</div>
+
+	<div class="weather-info" ng-show="error">
+		<p>{{error.message}}</p>
+	</div>
+</div>

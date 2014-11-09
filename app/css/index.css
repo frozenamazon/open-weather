@@ -7,6 +7,140 @@ html{
 
 body{
 	margin: 0 auto;
-	padding: 0px;
+	padding: 0px 20px;
 	max-width: 1100px;
+	background-color: #f7f7f7;
+}
+
+.clear{
+	clear: both;
+}
+
+.column{
+	margin: 20px 0;
+}
+
+.country{
+	text-transform: uppercase;
+}
+
+.city-list{
+	margin: 30px 0;
+}
+
+.city-list a{
+	padding: 10px 20px;
+	border-radius: 4px;
+	border: solid 1px #0099CC;
+	cursor: pointer;
+	margin-right: 20px;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+.city-list a:hover{
+	text-decoration: none;
+	background-color: #0099CC;
+	color: #fff;
+}
+
+.weather-info .main div[class*= "col-xs-"]{
+	margin: 0;
+	padding: 0;
+} 
+
+.weather-icon{
+	display: block;
+	width: 50px; 
+	height: 50px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	float: right;
+}
+
+.location{
+	margin-bottom: 10px;
+}
+
+.location .location-position{
+	margin-right: 20px;
+	float: left;
+}
+
+.location-name{
+	text-transform: uppercase;
+	font-size: 30px;
+	color: #6d6d6d;
+	margin: 0;
+}
+
+.location-label{
+	text-transform: uppercase;
+	color: #999;
+	margin-right: 10px;
+}
+
+.location .location-value{
+	color: #6d6d6d;
+	font-weight: 700;
+}
+
+.temperature-range-label{
+	text-transform: uppercase;
+	color: #999;
+	margin-right: 10px;
+	display: block;
+	margin-top: 20px;
+}
+
+.temperature-range-value{
+	color: #6d6d6d;
+	font-size: 24px;
+}
+
+.weather-info .main{
+	background-color: #ddd;
+	padding: 20px;
+	position: relative;
+	margin-bottom: 30px;
+}
+
+.weather-info h4{
+	text-transform: uppercase;
+	color: #999;
+	font-size: 14px;
+	margin: 0;
+}
+
+.weather-info .emphasis{
+	font-size: 48px;
+	display: block;
+	color: #0099CC;
+}
+
+.temperature .temperature-range{
+	display: block;
+	color: #6d6d6d;
+}
+
+@media screen and (max-width: 768px){
+	.weather-info article > div{
+		float: none;
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 400px){
+	.temperature .temperature-current{
+		float: none;
+		width: 100%;
+	}
+
+	.temperature .temperature-range{
+		width: 50%;
+	}
+
+	.location-name{
+		font-size: 26px;
+	}
 }
