@@ -103,6 +103,7 @@ body{
 	padding: 20px;
 	position: relative;
 	margin-bottom: 30px;
+	padding-bottom: 0;
 }
 
 .weather-info h4{
