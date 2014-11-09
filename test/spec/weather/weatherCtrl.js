@@ -13,7 +13,7 @@ describe("Unit: WeatherCtrl", function(){
 			var data = {
 				location: 'London,uk',
 				longitude: -0.13,
-				latitutde: 51.51,
+				latitude: 51.51,
 				weatherConditions: [{
 			        "label": "Rain",
 			        "icon": "10n"
@@ -31,6 +31,9 @@ describe("Unit: WeatherCtrl", function(){
 				humidity: 87
 			};
 
+			var dummyElement = document.createElement('div');
+			document.getElementById = jasmine.createSpy('HTML Element').and.returnValue(dummyElement);
+
 			var getWeatherDataDeferred = $q.defer();
 			getWeatherDataDeferred.resolve(data);
 			spyOn(_weatherService, 'getWeatherData').and.returnValue(getWeatherDataDeferred.promise);
@@ -41,6 +44,10 @@ describe("Unit: WeatherCtrl", function(){
 			});
 
 		});
+	});
+
+	it('sets the country to uk', function(){
+		expect(_scope.country).toContain('uk');
 	});
 
 	it('has a list of UK cities', function(){
