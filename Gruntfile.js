@@ -3,6 +3,7 @@ module.exports = function(grunt) {
   // Load the plugins.
   require('load-grunt-tasks')(grunt);
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-protractor-runner');
 
   // Project configuration.
   grunt.initConfig({
@@ -83,6 +84,32 @@ module.exports = function(grunt) {
             configFile: 'karma.conf.js',
             singleRun: true
         }
+    },
+    protractor_webdriver: {
+      target: {
+        options: {
+        },
+      },
+    },
+    protractor: {
+      options: {
+        configFile: "node_modules/protractor/referenceConf.js", // Default config file
+        keepAlive: true, // If false, the grunt process stops when the test fails.
+        noColor: false, // If true, protractor will not use colors in its output.
+      },
+      target: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too.
+        options: {
+          configFile: "protractor.conf.js" // Target-specific config file
+        }
+      }
+    },
+    cucumberjs: {
+      options: {
+        format: 'html',
+        output: 'test/report/cucumber_report.html',
+        theme: 'simple'
+      },
+      my_features: ['test/e2e/features/*.feature']
     }
   });
 
@@ -94,6 +121,16 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', [
     'karma'
+  ]);
+
+  grunt.registerTask('cucumber', [
+    'cucumberjs'
+  ]);
+
+  grunt.registerTask('e2etest', [
+    'connect',
+    'protractor_webdriver',
+    'protractor'
   ]);
 
   grunt.registerTask('build', [

@@ -8,7 +8,7 @@
      * @name common.services.weather
      * @description
      *
-     * Should call the API to obtain the information
+     * Service for weather page. It handles calls to the open weather API to obtain the information
      *
      *
      */

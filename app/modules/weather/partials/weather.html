@@ -40,6 +40,10 @@
 					</div>
 					<div class="clear"></div>
 				</div>
+				<div class="column">
+					<h4>Conditions</h4>
+					<span ng-repeat="item in weather.weatherConditions" class="weather-conditions">{{item.label}}</span>
+				</div>
 			</div>
 			<div class="col-xs-4">
 				<div class="location">

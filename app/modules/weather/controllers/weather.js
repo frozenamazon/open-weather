@@ -3,9 +3,9 @@
 
 	/**
      * @ngdoc function
-     * @name common.services.weather
+     * @name common.controllers.weather
      * @description
-     *
+     * Controller for weather page
      * 
      *
      *

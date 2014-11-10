@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CuDoc</title>
+    <style type="text/css">
+     body {
+  font: 14px Consolas, Courier, monospace;
+}
+
+h1, h2, h3, h4, p {
+  margin: 0;
+  padding: 0;
+}
+
+.highlight {
+  color: #111111;
+  font-weight: bold;
+}
+
+.failed {
+  background-color: #ff9999;  
+}
+
+.passed {
+  background-color: #99ff99;
+}
+
+.step {
+  margin: 10px;
+}
+
+.step .text {
+  border-radius: 3px;
+  color: #666666;
+  padding: 5px;
+  display: block;
+}
+
+.container {
+  background: #f8f8f8;
+  border-radius: 5px;
+  border: 1px solid #e8e8e8;
+  padding: 10px;
+  margin: 10px;
+}
+    </style>
+  </head>
+  <body>
+     
+<div class="feature container">
+  <h3 class="title"><span class="highlight">Feature: </span>Example feature</h3>
+  <p>As a user of Weather app<br />I want to view a list of cities<br />So that I can see the weather for each city</p>
+   
+    <div class="element container">
+    <h3 class="title"><span class="highlight">Scenario: </span>Select a city</h3>
+       
+        <div class="step">
+          <p>
+            <span class="text passed"><span class="keyword highlight">Given </span> I am on the Weather app</span>
+          </p>
+        </div>
+       
+        <div class="step">
+          <p>
+            <span class="text passed"><span class="keyword highlight">When </span> I select a city</span>
+          </p>
+        </div>
+       
+        <div class="step">
+          <p>
+            <span class="text passed"><span class="keyword highlight">Then </span> I should see the weather of the city</span>
+          </p>
+        </div>
+       
+    </div>
+   
+    <div class="element container">
+    <h3 class="title"><span class="highlight">Scenario: </span>Select another city</h3>
+       
+        <div class="step">
+          <p>
+            <span class="text passed"><span class="keyword highlight">Given </span> I have chosen a city</span>
+          </p>
+        </div>
+       
+        <div class="step">
+          <p>
+            <span class="text passed"><span class="keyword highlight">When </span> I select another city</span>
+          </p>
+        </div>
+       
+        <div class="step">
+          <p>
+            <span class="text passed"><span class="keyword highlight">Then </span> I should see the weather of the chosen city</span>
+          </p>
+        </div>
+       
+    </div>
+   
+</div>
+ 
+
+  </body>
+</html>
