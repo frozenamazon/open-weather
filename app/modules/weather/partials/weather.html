@@ -2,8 +2,8 @@
 	<h2>Today's weather in <span class="country">{{country}}</span></h2>
 	<div class="city-list">
 		<a ng-click="reverse=!reverse;sortByCities(reverse)" class="sort-btn">Sort 
-			<span ng-show="reverse">ascending</span>
-			<span ng-show="!reverse">descending</span>
+			<span ng-show="reverse">ascending <i class="fa fa-chevron-up"></i></span>
+			<span ng-show="!reverse">descending <i class="fa fa-chevron-down"></i></span>
 		</a>
 		<div class="clear"></div>
 		<a ng-repeat="item in cities" class="city" ng-click="getWeatherDataByCity(item.cities)">{{item.cities}}</a>

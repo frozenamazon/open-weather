@@ -31,7 +31,7 @@ describe("Unit: WeatherCtrl", function(){
 				humidity: 87
 			};
 
-			var dummyElement = document.createElement('div');
+			var dummyElement = document.createElement('iframe');
 			document.getElementById = jasmine.createSpy('HTML Element').and.returnValue(dummyElement);
 
 			var getWeatherDataDeferred = $q.defer();
@@ -73,10 +73,11 @@ describe("Unit: WeatherCtrl", function(){
 		expect(_scope.cities[3].cities).toContain('Birmingham');
 	});
 
-	it('should set scope.weather with the value from services', function(){
+	it('should set scope.weather with the value from services and iframe for google maps', function(){
 		_scope.getWeatherDataByCity('London');
 		expect(_weatherService.getWeatherData).toHaveBeenCalledWith('London,uk');
 		_scope.$apply();
+		expect(document.getElementById().src).toContain('https://www.google.com/maps/embed/v1/place?key=AIzaSyDFRsvsPJUqXrGvyQ-NExGFauUC5gfCJTY&q=');
 		expect(_scope.weather.location).toBe('London,uk');
 		expect(_scope.weather.longitude).toBe(-0.13);
 		expect(_scope.weather.latitude).toBe(51.51);
