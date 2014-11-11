@@ -154,6 +154,16 @@ module.exports = function(grunt) {
     'protractor'
   ]);
 
+  grunt.registerTask('buildwithnotest', [
+    'clean:dist',
+    'useminPrepare',
+    'concat',
+    'uglify',
+    'htmlmin',
+    'usemin',
+    'copy'
+  ]);
+
   grunt.registerTask('build', [
     'clean:dist',
     'utest',
