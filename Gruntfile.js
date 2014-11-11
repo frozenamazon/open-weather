@@ -26,7 +26,8 @@ module.exports = function(grunt) {
               src: [
                   'fonts/*',
                   'css/*',
-                  'images/*'
+                  'images/*',
+                  'modules/**/*',
               ]
           },
         ],
@@ -78,6 +79,20 @@ module.exports = function(grunt) {
             ]
         }
     },
+    // Empties folders to start fresh
+    clean: {
+        dist: {
+            files: [
+                {
+                    dot: true,
+                    src: [
+                        '.tmp',
+                        '<%= pkg.dest %>/*'
+                    ]
+                }
+            ]
+        }
+    },
     // Test settings
     karma: {
         unit: {
@@ -110,7 +125,16 @@ module.exports = function(grunt) {
         theme: 'simple'
       },
       my_features: ['test/e2e/features/*.feature']
-    }
+    },
+    // Make sure code styles are up to par and there are no obvious mistakes
+    jshint: {
+        options: {
+            reporter: require('jshint-stylish')
+        },
+        all: [
+            '<%= pkg.dest %>/modules/**/**/*.js'
+        ]
+    },
   });
 
   // Default task(s).
@@ -119,21 +143,21 @@ module.exports = function(grunt) {
     'watch'
   ]);
 
-  grunt.registerTask('test', [
+  grunt.registerTask('utest', [
+    'jshint',
     'karma'
   ]);
 
-  grunt.registerTask('cucumber', [
-    'cucumberjs'
-  ]);
-
-  grunt.registerTask('e2etest', [
+  grunt.registerTask('e2e', [
     'connect',
     'protractor_webdriver',
     'protractor'
   ]);
 
   grunt.registerTask('build', [
+    'clean:dist',
+    'utest',
+    'e2e',
     'useminPrepare',
     'concat',
     'uglify',
