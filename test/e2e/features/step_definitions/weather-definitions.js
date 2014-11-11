@@ -24,6 +24,7 @@ var weatherSteps = function() {
 	  });
 	});
 
+
 	this.Given('I have chosen a city', function (done) {
 	  done();
 	});
@@ -40,6 +41,7 @@ var weatherSteps = function() {
 		  done();
 	  });
 	});
+
 
 	this.Given('I have list of cities', function (done) {
 	  done();
@@ -60,6 +62,7 @@ var weatherSteps = function() {
 		  });
 	  });
 	});
+	
 
 	this.Given('I have list of cities in descending order', function (done) {
 	  done();
