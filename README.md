@@ -6,8 +6,9 @@ This application uses protractor, cucumberjs to run automated e2e test using gru
 
 ###### Instructions
 - To run application, just run ```grunt```
-- To build a production ready (minified) , just run ```grunt build```
-** Note: you need protractor and web driver installed, else just run grunt buildwithnotest
+- To build production ready (minified) files, just run ```grunt build```
+
+**Note** you need protractor and web driver installed, else just run ```grunt buildwithnotest```
 
 ###### Example
 ![alt tag](https://github.com/frozenamazon/open-weather/blob/master/weather.png)
