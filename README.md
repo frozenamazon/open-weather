@@ -2,7 +2,7 @@ open-weather
 ============
 A simple application that can pull data from Open Weather Map API  and display it on the screen. It currently can be filtered on 4 cities: London, Luton Manchester, and Birmingham.
 
-This application is also a sample that uses protractor, cucumberjs to run automated e2e test using grunt
+This application is uses protractor, cucumberjs to run automated e2e test using grunt
 
 ###### Instructions
 - To run application, just run ```grunt```
